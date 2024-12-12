@@ -1,1 +1,89 @@
 /* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+span, p, h1, h2, h3, h4, h5, h6 {
+    @apply text-text-light dark:text-text-dark;
+    @apply drop-shadow-sm;
+    font-family: theme('fontFamily.roboto');
+}
+
+@layer utilities {
+    /* Chrome, Safari and Opera */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+
+    .no-scrollbar {
+      -ms-overflow-style: none; /* IE and Edge */
+      scrollbar-width: none; /* Firefox */
+    }
+}
+
+html {
+    @apply bg-background-light dark:bg-background-dark;
+    scroll-behavior: smooth !important;
+}
+
+.custom-cursor {
+  width: 1000px;
+  height: 1000px;
+  opacity: 0.6;
+  border-radius: 50%;
+  transition: all ease-out;
+  position: absolute;
+  z-index: -100;
+  top: 50%;
+  left: 50%;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.custom-cursor-light {
+  background: none;
+}
+
+.custom-cursor-dark {
+  background: radial-gradient(
+    circle, rgba(136, 212, 152, 0.2) 10%, rgba(136, 212, 152, 0.15) 20%, rgba(136, 212, 152, 0.1) 30%, rgba(136, 212, 152, 0.05) 40%, rgba(9, 41, 52, 0.05) 50%,
+  rgba(9, 41, 52, 0.1) 60%, rgba(9, 41, 52, 0.15) 70%, rgba(9, 41, 52, 0.2) 80%, rgba(9, 41, 52, 0.25) 90%, rgba(9, 41, 52, 0.3) 100%);
+}
+
+.menu-item {
+  opacity: 60%;
+  @apply text-accent-light dark:text-accent-dark;
+
+  .line {
+      width: 1.5rem;
+      height: 1px;
+      border: none;
+      border-radius: 7px 7px 7px 7px;
+      @apply bg-accent-light dark:bg-accent-dark;
+      transition: width 0.25s ease 0.1s;
+      transition: height 0.25 ease 0.1s;
+  }
+
+  span {
+    @apply text-accent-light dark:text-accent-dark;
+  }
+}
+
+.menu-item:hover {
+  opacity: 100%;
+  
+
+  .line {
+      width: 4rem;
+      height: 1.5px;
+  }
+}
+
+.menu-item.active {
+  opacity: 100%;
+
+  .line {
+      width: 4rem;
+      height: 1.5px;
+  }
+}

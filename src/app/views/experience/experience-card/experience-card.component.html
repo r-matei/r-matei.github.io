@@ -1,0 +1,27 @@
+<div class="w-100 h-auto p-4 hover:bg-accent-light dark:hover:bg-accent-dark hover:bg-opacity-10 dark:hover:bg-opacity-10 hover:shadow-1 card-container rounded-lg">
+   <a [href]="experience.url" target="_blank">
+    <div class="flex flex-row">
+        <div class="flex period-text uppercase text-secondary-light dark:text-secondary-dark opacity-60 font-semibold text-xs leading-7 my-2">
+            {{ experience.periodStart }} - {{ experience.periodEnd }}
+        </div>
+        <div class="flex flex-col px-4 bg-inherit">
+            <div class="card-title text-secondary-light dark:text-secondary-dark text-xl font-semibold my-2">
+                {{ experience.company }} &#x2022; {{ experience.position }}
+                <span class="material-symbols-outlined arrow-icon text-secondary-light dark:text-secondary-dark">
+                    arrow_outward
+                </span>
+            </div>
+
+            <div class="text-secondary-light dark:text-secondary-dark opacity-60 font-regular dark:font-light">
+                {{ experience.description }}
+            </div>
+
+            <div class="flex flex-row gap-2 my-3 flex-wrap">
+                <div *ngFor="let skill of experience.skills" class="rounded-full text-xs font-medium text-accent-light dark:text-accent-dark uppercase bg-primary-light dark:bg-primary-dark bg-opacity-10 dark:bg-opacity-20 px-3 py-1">
+                    {{ skill }}
+                </div>
+            </div>
+        </div>
+    </div>
+   </a>
+</div>

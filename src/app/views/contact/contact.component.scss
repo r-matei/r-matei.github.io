@@ -1,0 +1,13 @@
+.menu-item {
+    opacity: 100%;
+}
+
+.contact-icon {
+    fill: theme('colors.text.light');
+    transition: fill 0.2s ease;
+}
+
+.contact-icon-dark {
+    fill: theme('colors.text.dark');
+    transition: fill 0.2s ease;
+}

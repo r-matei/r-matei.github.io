@@ -1,0 +1,24 @@
+<div class="flex">
+    <h1 class="text-4xl font-bold text-accent-light dark:text-accent-dark mx-5 my-2 lg:mx-0">Roxana Matei</h1>
+    <svg (click)="changeTheme()" [ngClass]="isDarkMode() ? 'dark-mode' : 'light-mode'" class="mode-icon opacity-100 dark:opacity-60 my-auto ml-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24px" height="24px">
+        <path d="M0 12c0 6.627 5.373 12 12 12s12-5.373 12-12-5.373-12-12-12-12 5.373-12 12zm2 0c0-5.514 4.486-10 10-10v20c-5.514 0-10-4.486-10-10z"></path>
+    </svg>
+</div>
+<h3 class="text-xl font-medium text-accent-light dark:text-accent-dark mx-5 lg:mx-0">Front End Developer</h3>
+<p class="leading-normal font-regular dark:font-light text-text-light dark:text-text-dark mx-5 my-6 w-1/2 lg:w-2/3 opacity-60 lg:mx-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+
+<nav class="hidden h-auto mx-5 lg:flex lg:mx-0">
+    <ul class="flex flex-col gap-3">
+        <li *ngFor="let menu of menuEntries">
+            <a
+                class="flex menu-item text-sm font-semibold"
+                [class.active]="(selectedFragment | async) === menu.path"
+                routerLink=""
+                [fragment]="menu.path"
+                ariaCurrentWhenActive="page">
+                <hr class="line mr-3 my-auto">
+                {{ menu.name }}
+            </a>
+        </li>
+    </ul>
+</nav>

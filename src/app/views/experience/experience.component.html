@@ -1,0 +1,21 @@
+<section class="pt-8 md:pt-16 lg:pt-24 mx-5 lg:mx-0">
+    <div #header class="flex menu-item lg:hidden py-4">
+        <hr class="line mr-3 my-auto">
+        <span class="leading-normal">EXPERIENCE</span>
+    </div>
+    
+    <div *ngFor="let experience of experienceList" class="my-4">
+        <app-experience-card [experience]="experience"></app-experience-card>
+    </div>
+
+    <div class="resume-text">
+        <a href="https://drive.google.com/file/d/1sM18tKQGMk3UFuxqvKWqNkj6DzqzjzJu/view?usp=sharing" download="resume.pdf" target="_blank">
+            <span class="py-2 px-1 font-medium">
+                Read Full Resume
+            </span>
+            <span class="material-symbols-outlined arrow-icon">
+                arrow_outward
+            </span>
+        </a>
+    </div>
+</section>

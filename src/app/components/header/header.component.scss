@@ -1,0 +1,13 @@
+.mode-icon {
+    transition: fill 0.2s ease;
+    cursor: pointer;
+    @apply fill-text-light dark:fill-text-dark;
+}
+
+.light-mode {
+    fill: theme('colors.text.light');
+}
+
+.dark-mode {
+    fill: theme('colors.text.dark');
+}

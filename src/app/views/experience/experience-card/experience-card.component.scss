@@ -1,0 +1,37 @@
+.line {
+    width: 1rem;
+    height: 1px;
+    border: none;
+    border-radius: 7px 7px 7px 7px;
+    @apply bg-secondary-light dark:bg-secondary-dark;
+}
+
+.period-text {
+    min-width: 7rem;
+}
+
+.card-container {
+    transition: 0.25s;
+}
+
+.arrow-icon {
+    width: 20px;
+    font-size: 20px;
+    position: absolute;
+    margin-top: 7px;
+    margin-left: 4px;
+    transition: 0.25s;
+}
+
+.card-container:hover {
+    .card-title {
+        @apply text-accent-light dark:text-accent-dark;
+        
+    }
+
+    .arrow-icon {
+        @apply text-accent-light dark:text-accent-dark;
+        margin-top: 2px;
+        margin-left: 8px ;
+    }
+}
