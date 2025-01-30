@@ -1,25 +1,25 @@
-import { Component, inject, OnInit, Renderer2, signal } from '@angular/core';
+import { AfterViewInit, Component, Inject, inject, OnInit, Renderer2, signal } from '@angular/core';
 import { HeaderComponent } from './components/header/header.component';
 import { AboutComponent } from './views/about/about.component';
 import { ExperienceComponent } from './views/experience/experience.component';
 import { ContactComponent } from './views/contact/contact.component';
 import { ActivatedRoute } from '@angular/router';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DOCUMENT } from '@angular/common';
+import { EducationComponent } from "./views/education/education.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [HeaderComponent, AboutComponent, ExperienceComponent, ContactComponent, CommonModule],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  imports: [HeaderComponent, AboutComponent, ExperienceComponent, ContactComponent, CommonModule, EducationComponent],
+  templateUrl: './app.component.html'
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, AfterViewInit {
   private route = inject(ActivatedRoute);
   private renderer = inject(Renderer2);
   protected scrolledFragment = signal('about');
   public isDarkMode = signal(true);
 
-  constructor() {}
+  constructor(@Inject(DOCUMENT) private document: Document) {}
 
   public ngOnInit(): void {
     this.route.fragment.subscribe(() => {
@@ -33,12 +33,15 @@ export class AppComponent implements OnInit {
         this.scrolledFragment.set('contact');
       } else if (this.isVisible(document.getElementById('about') as HTMLElement)) {
         this.scrolledFragment.set('about');
+      } else if (this.isVisible(document.getElementById('education') as HTMLElement)) {
+        this.scrolledFragment.set('education');
       } else if (this.isVisible(document.getElementById('experience') as HTMLElement)) {
         this.scrolledFragment.set('experience');
       }
     });
+  }
 
-    this.setupCustomCursor();
+  public ngAfterViewInit(): void {
     this.setThemeClass();
   }
 
@@ -106,32 +109,12 @@ export class AppComponent implements OnInit {
     return false;
   }
 
-  private setupCustomCursor(): void {
-    const cursor = document.getElementById('cursor');
-
-    if (!cursor) {
-      return;
-    }
-
-    const moveCursor = (e: MouseEvent) => {
-      const mouseY = e.pageY;
-      const mouseX = e.pageX;
-
-      cursor.style.top = mouseY-500 + 'px';
-      cursor.style.left = mouseX-500 + 'px';
-
-      // cursor.style.backgroundColor = `radial-gradient(600px at ${mouseX}px ${mouseY}px, rgba(136, 212, 152, 0.15), transparent 80%)`;
-    }
-
-    window.addEventListener('mousemove', moveCursor);
-  }
-
   private setThemeClass(): void {
     if (this.isDarkMode()) {
-      document.documentElement.classList.add('dark');
+      this.document.documentElement.classList.add('dark');
       return;
     }
 
-    document.documentElement.classList.remove('dark');
+    this.document.documentElement.classList.remove('dark');
   }
 }

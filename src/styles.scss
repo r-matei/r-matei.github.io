@@ -26,32 +26,8 @@ html {
     scroll-behavior: smooth !important;
 }
 
-.custom-cursor {
-  width: 1000px;
-  height: 1000px;
-  opacity: 0.6;
-  border-radius: 50%;
-  transition: all ease-out;
-  position: absolute;
-  z-index: -100;
-  top: 50%;
-  left: 50%;
-  pointer-events: none;
-  overflow: hidden;
-}
-
-.custom-cursor-light {
-  background: none;
-}
-
-.custom-cursor-dark {
-  background: radial-gradient(
-    circle, rgba(136, 212, 152, 0.2) 10%, rgba(136, 212, 152, 0.15) 20%, rgba(136, 212, 152, 0.1) 30%, rgba(136, 212, 152, 0.05) 40%, rgba(9, 41, 52, 0.05) 50%,
-  rgba(9, 41, 52, 0.1) 60%, rgba(9, 41, 52, 0.15) 70%, rgba(9, 41, 52, 0.2) 80%, rgba(9, 41, 52, 0.25) 90%, rgba(9, 41, 52, 0.3) 100%);
-}
-
 .menu-item {
-  opacity: 60%;
+  @apply opacity-80 dark:opacity-60;
   @apply text-accent-light dark:text-accent-dark;
 
   .line {

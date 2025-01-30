@@ -1,31 +1,3 @@
 .menu-item {
     opacity: 100%;
 }
-
-.resume-text {
-    a span {
-        transition: color 0.25s ease;
-    }
-
-    .arrow-icon {
-        width: 20px;
-        font-size: 20px;
-        position: absolute;
-        margin-top: 4px;
-        margin-left: 1px;
-        transition: 0.25s;
-    }
-
-}
-
-.resume-text:hover {
-    a span {
-        @apply text-accent-light dark:text-accent-dark;
-    }
-
-    .arrow-icon {
-        @apply text-accent-light dark:text-accent-dark;
-        margin-top: 0;
-        margin-left: 4px ;
-    }
-}

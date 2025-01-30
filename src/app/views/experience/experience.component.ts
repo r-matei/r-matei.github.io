@@ -10,7 +10,7 @@ export interface ExperienceInterface {
   url: string;
   position: string;
   description: string;
-  skills: Array<string>;
+  skills?: Array<string>;
 }
 
 @Component({
@@ -28,8 +28,8 @@ export class ExperienceComponent {
       company: 'PlentyONE',
       url: 'https://www.plentyone.com/',
       position: 'Front End Developer',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-      skills: ['angular', 'javascript', 'typescript', 'scss', 'html', 'gwt', 'ux/ui', 'figma']
+      description: 'Developed and maintained dynamic, responsive web solutions using Angular and GWT (Google Web Toolkit) to enhance user experience and performance. Collaborated with UX/UI designers to implement intuitive user interfaces that align with modern design trends and improve usability. Played a key role in migrating legacy GWT applications to modern Angular architecture, improving overall maintainability and future scalability. Collaborated with backend developers to troubleshoot and resolve complex issues, ensuring smooth data exchange between the frontend and backend systems. Created design mockups using Figma for sharing my design ideas and getting feedback for new solutions before implementing them.',
+      skills: ['angular', 'typescript', 'scss', 'html', 'gwt', 'ux/ui', 'figma']
     },
     {
       periodStart: '2021',
@@ -37,7 +37,7 @@ export class ExperienceComponent {
       company: 'Webmagnat SRL',
       url: 'https://webmagnat.ro/',
       position: 'Front End Developer',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+      description: 'Designed and developed custom, responsive web applications using Vue.js, ensuring an optimal user experience across a variety of devices. Worked closely with clients to understand their needs, translating them custom solutions with intuitive interfaces and efficient functionality.',
       skills: ['vue', 'javascript', 'laravel', 'css', 'html', 'jquery']
     },
     {
@@ -46,7 +46,7 @@ export class ExperienceComponent {
       company: 'Bitdefender',
       url: 'https://www.bitdefender.com/',
       position: 'Data Warehouse Developer Intern',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+      description: 'After my 3rd year of university I worked as a data warehouse develoepr intern where I assisted in the management of data warehouse systems, supported the design and implementation on fata models that accurately represent business scenarios and contributed to the management of databases. ',
       skills: ['mysql', 'ssms', 'sscm', 'ssdt']
     }
   ];

@@ -20,6 +20,10 @@ export class HeaderComponent {
       path: 'about'
     },
     {
+      name: 'EDUCATION',
+      path: 'education'
+    },
+    {
       name: 'EXPERIENCE',
       path: 'experience'
     },
