@@ -104,7 +104,7 @@ export class AppComponent implements OnInit, AfterViewInit {
       if (pointContainer === elem) {
         return true;
       }
-    } while ((pointContainer = pointContainer.parentNode));
+    } while ((pointContainer = pointContainer?.parentNode));
 
     return false;
   }

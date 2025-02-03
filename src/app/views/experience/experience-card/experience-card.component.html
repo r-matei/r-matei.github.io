@@ -1,12 +1,12 @@
 <div class="w-100 h-auto p-4 hover:bg-accent-light dark:hover:bg-accent-dark hover:bg-opacity-10 dark:hover:bg-opacity-10 hover:shadow-1 card-container rounded-lg">
    <a [href]="experience.url" target="_blank">
     <div class="flex flex-row">
-        <div class="flex period-text uppercase text-secondary-light dark:text-secondary-dark opacity-60 font-semibold text-xs leading-7 my-2">
-            {{ experience.periodStart }} - {{ experience.periodEnd }}
+        <div class="flex my-2">
+            <span class="period-text uppercase text-secondary-light dark:text-secondary-dark opacity-60 font-semibold text-xs leading-7">{{ experience.periodStart }} - {{ experience.periodEnd }}</span>
         </div>
         <div class="flex flex-col px-4 bg-inherit">
-            <div class="card-title text-secondary-light dark:text-secondary-dark text-xl font-semibold my-2">
-                {{ experience.company }} &#x2022; {{ experience.position }}
+            <div class="card-title my-2">
+                <span class="text-secondary-light dark:text-secondary-dark text-xl font-semibold">{{ experience.company }} &#x2022; {{ experience.position }}</span>
                 <span class="material-symbols-outlined arrow-icon text-secondary-light dark:text-secondary-dark">
                     arrow_outward
                 </span>

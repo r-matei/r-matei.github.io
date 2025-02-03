@@ -24,7 +24,7 @@
 }
 
 .card-container:hover {
-    .card-title {
+    .card-title span {
         @apply text-accent-light dark:text-accent-dark;
         
     }
