@@ -43,7 +43,14 @@ module.exports = {
       'text-accent-light',
       'dark:text-accent-dark',
       'text-text-light',
-      'dark:text-text-dark'
+      'dark:text-text-dark',
+      'font-regular',
+      'dark:font-light',
+      'font-medium',
+      'bg-accent-light',
+      'dark:bg-accent-dark',
+      'shadow-1',
+      
     ]
   },
 }
