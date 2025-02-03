@@ -50,7 +50,11 @@ module.exports = {
       'bg-accent-light',
       'dark:bg-accent-dark',
       'shadow-1',
-      
+      'hover:bg-accent-light',
+      'dark:hover:bg-accent-dark',
+      'hover:shadow-1',
+      'bg-primary-light',
+      'dark:bg-primary-dark'
     ]
   },
 }
