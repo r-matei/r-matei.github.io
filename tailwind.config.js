@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./src/**/*.{html,ts}"],
+  content: ["./src/**/*.{html,ts,tsx}"],
   theme: {
     colors: {
       background: {
@@ -41,7 +41,9 @@ module.exports = {
       'text-secondary-light',
       'dark:text-secondary-dark',
       'text-accent-light',
-      'dark:text-accent-dark'
+      'dark:text-accent-dark',
+      'text-text-light',
+      'dark:text-text-dark'
     ]
   },
 }
