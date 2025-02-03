@@ -34,6 +34,15 @@ module.exports = {
     }
   },
   plugins: [],
-  darkMode: 'selector'
+  darkMode: 'selector',
+  purge: {
+    content: ["./src/**/*.{html,ts}"],
+    safelist: [
+      'text-secondary-light',
+      'dark:text-secondary-dark',
+      'text-accent-light',
+      'dark:text-accent-dark'
+    ]
+  },
 }
 
