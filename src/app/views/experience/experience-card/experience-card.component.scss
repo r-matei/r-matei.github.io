@@ -10,6 +10,13 @@
     min-width: 7rem;
 }
 
+@media only screen and (max-width: 768px) {
+    .period-text {
+        min-width: 4rem;
+    }
+}
+
+
 .card-container {
     transition: 0.25s;
 }
