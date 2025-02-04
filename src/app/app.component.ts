@@ -17,9 +17,17 @@ export class AppComponent implements OnInit, AfterViewInit {
   private route = inject(ActivatedRoute);
   private renderer = inject(Renderer2);
   protected scrolledFragment = signal('about');
-  public isDarkMode = signal(true);
+  public isDarkMode = signal<boolean | null>(null);
 
-  constructor(@Inject(DOCUMENT) private document: Document) {}
+  constructor(@Inject(DOCUMENT) private document: Document) {
+    const localStorage = document.defaultView?.localStorage;
+
+    if (localStorage?.getItem('isDarkMode')) {
+      this.isDarkMode.set(JSON.parse(localStorage.getItem('isDarkMode')!));
+    } else {
+      this.isDarkMode.set(true);
+    }
+  }
 
   public ngOnInit(): void {
     this.route.fragment.subscribe(() => {

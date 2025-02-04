@@ -9,5 +9,5 @@ import { Component, input } from '@angular/core';
   styleUrl: './contact.component.scss'
 })
 export class ContactComponent {
-  public isDarkMode = input.required<boolean>();
+  public isDarkMode = input.required<boolean | null>();
 }
