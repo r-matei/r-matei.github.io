@@ -46,7 +46,7 @@ export class ExperienceComponent {
       company: 'Bitdefender',
       url: 'https://www.bitdefender.com/',
       position: 'Data Warehouse Developer Intern',
-      description: 'After my 3rd year of university I worked as a data warehouse develoepr intern where I assisted in the management of data warehouse systems, supported the design and implementation on fata models that accurately represent business scenarios and contributed to the management of databases. ',
+      description: 'After my 3rd year of university I worked as a data warehouse develoepr intern where I assisted in the management of data warehouse systems, supported the design and implementation on data models that accurately represent business scenarios and contributed to the management of databases. ',
       skills: ['mysql', 'ssms', 'sscm', 'ssdt']
     }
   ];
