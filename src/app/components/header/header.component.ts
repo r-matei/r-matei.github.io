@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, effect, inject, input, model, OnInit } from '@angular/core';
 import { ActivatedRoute, RouterLink, RouterLinkActive } from '@angular/router';
-import { of, share } from 'rxjs';
+import { debounceTime, Observable, of, share } from 'rxjs';
 
 @Component({
   selector: 'app-header',
@@ -20,12 +20,12 @@ export class HeaderComponent {
       path: 'about'
     },
     {
-      name: 'EDUCATION',
-      path: 'education'
-    },
-    {
       name: 'EXPERIENCE',
       path: 'experience'
+    },
+    {
+      name: 'EDUCATION',
+      path: 'education'
     },
     {
       name: 'CONTACT',
@@ -33,9 +33,15 @@ export class HeaderComponent {
     }
   ]
 
-  protected selectedFragment = inject(ActivatedRoute).fragment.pipe(share());
+  protected selectedFragment: Observable<string | null> | undefined;
+
+  protected route = inject(ActivatedRoute);
 
   constructor() {
+    this.route.fragment.subscribe(fragment => {
+      this.selectedFragment = of(fragment);
+    });
+
     effect(() => {
       this.selectedFragment = of(this.scrolledFragment());
     })

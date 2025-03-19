@@ -13,7 +13,9 @@
             </div>
 
             <div class="text-secondary-light dark:text-secondary-dark opacity-60 font-regular dark:font-light">
-                <p [innerHTML]="experience.description"></p>
+                <p class="mb-2" *ngFor="let description of experience.description">
+                    <span>&#x2022;</span> <span class="ml-2" [innerHTML]="description"></span>
+                </p>
             </div>
 
             <div class="flex flex-row gap-2 my-3 flex-wrap">

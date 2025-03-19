@@ -6,6 +6,7 @@ import { ContactComponent } from './views/contact/contact.component';
 import { ActivatedRoute } from '@angular/router';
 import { CommonModule, DOCUMENT } from '@angular/common';
 import { EducationComponent } from "./views/education/education.component";
+import { share } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -14,10 +15,11 @@ import { EducationComponent } from "./views/education/education.component";
   templateUrl: './app.component.html'
 })
 export class AppComponent implements OnInit, AfterViewInit {
-  private route = inject(ActivatedRoute);
   private renderer = inject(Renderer2);
   protected scrolledFragment = signal('about');
   public isDarkMode = signal<boolean | null>(null);
+  protected route = inject(ActivatedRoute);
+  private fragment: string | null = null;
 
   constructor(@Inject(DOCUMENT) private document: Document) {
     const localStorage = document.defaultView?.localStorage;
@@ -30,19 +32,17 @@ export class AppComponent implements OnInit, AfterViewInit {
   }
 
   public ngOnInit(): void {
-    this.route.fragment.subscribe(() => {
-      (fragment: string | undefined) => {
-        if (fragment) this.scrollToFragment(fragment);
-      }
+    this.route.fragment.subscribe((value) => {
+      this.fragment = value;
     })
 
     this.renderer.listen('window', 'scroll', (event) => {
-      if (this.isVisible(document.getElementById('contact') as HTMLElement)) {
+      if (this.isVisible(document.getElementById('contact') as HTMLElement) && (!this.fragment || this.fragment === 'contact')) {
         this.scrolledFragment.set('contact');
-      } else if (this.isVisible(document.getElementById('about') as HTMLElement)) {
-        this.scrolledFragment.set('about');
       } else if (this.isVisible(document.getElementById('education') as HTMLElement)) {
         this.scrolledFragment.set('education');
+      } else if (this.isVisible(document.getElementById('about') as HTMLElement)) {
+        this.scrolledFragment.set('about');
       } else if (this.isVisible(document.getElementById('experience') as HTMLElement)) {
         this.scrolledFragment.set('experience');
       }
@@ -51,10 +51,6 @@ export class AppComponent implements OnInit, AfterViewInit {
 
   public ngAfterViewInit(): void {
     this.setThemeClass();
-  }
-
-  private scrollToFragment(id: string): void {
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
   }
 
   private isVisible(elem: HTMLElement): boolean {
