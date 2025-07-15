@@ -16,7 +16,7 @@
                      {{ education.company }} &#x2022; {{ education.position }}
                  </div>
      
-                 <div class="text-secondary-light dark:text-secondary-dark opacity-60 font-regular dark:font-light">
+                 <div class="text-secondary-light dark:text-secondary-dark" [ngClass]="{'opacity-80 font-regular': !darkMode(), 'opacity-60 font-light': darkMode()}">
                     <p class="mb-2" *ngFor="let description of education.description">
                         <span>&#x2022;</span> <span class="ml-2 mb-2" [innerHTML]="description"></span>
                     </p>

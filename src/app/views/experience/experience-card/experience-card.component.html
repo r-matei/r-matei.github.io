@@ -5,14 +5,17 @@
             {{ experience.periodStart }} - {{ experience.periodEnd }}
         </div>
         <div class="flex flex-col md:px-4 bg-inherit">
-            <div class="card-title my-2 text-secondary-light dark:text-secondary-dark text-xl font-semibold">
+            <div class="my-2 text-secondary-light dark:text-secondary-dark text-xl font-semibold">
                 {{ experience.company }} &#x2022; {{ experience.position }}
                 <span class="material-symbols-outlined arrow-icon text-secondary-light dark:text-secondary-dark">
                     arrow_outward
                 </span>
             </div>
 
-            <div class="text-secondary-light dark:text-secondary-dark opacity-60 font-regular dark:font-light">
+            <div
+                class="text-secondary-light dark:text-secondary-dark"
+                [ngClass]="{'opacity-80 font-regular': !darkMode(), 'opacity-60 font-light': darkMode()}"
+                >
                 <p class="mb-2" *ngFor="let description of experience.description">
                     <span>&#x2022;</span> <span class="ml-2" [innerHTML]="description"></span>
                 </p>

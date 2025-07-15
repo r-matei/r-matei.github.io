@@ -6,7 +6,10 @@
 </div>
 <h3 class="text-xl font-medium text-accent-light dark:text-accent-dark mx-5 lg:mx-0">Frontend Developer</h3>
 
-<p class="leading-normal font-regular dark:font-light text-text-light dark:text-text-dark mx-5 my-6 w-1/2 lg:w-2/3 lg:mx-0 opacity-60">
+<p
+    class="leading-normal text-text-light dark:text-text-dark mx-5 my-6 w-1/2 lg:w-2/3 lg:mx-0"
+    [ngClass]="isDarkMode() ? 'font-light opacity-60' : 'font-regular opacity-80'"
+>
     I create performant and visual appealing web solutions
 </p>
 

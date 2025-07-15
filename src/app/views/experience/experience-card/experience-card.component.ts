@@ -1,6 +1,7 @@
-import { Component, Input } from '@angular/core';
+import { Component, effect, Input, signal } from '@angular/core';
 import { ExperienceInterface } from '../experience.component';
 import { CommonModule } from '@angular/common';
+import { darkMode } from '../../../components/header/header.component';
 
 @Component({
   selector: 'app-experience-card',
@@ -12,4 +13,5 @@ import { CommonModule } from '@angular/common';
 export class ExperienceCardComponent {
     @Input({ required: true })
     public experience!: ExperienceInterface;
+    darkMode = darkMode();
 }

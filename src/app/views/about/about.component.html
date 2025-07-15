@@ -4,15 +4,15 @@
         <span class="leading-normal">ABOUT</span>
     </div>
 
-    <div class="leading-normal font-regular dark:font-light text-text-light dark:text-text-dark">
+    <div class="leading-normal text-text-light dark:text-text-dark" [ngClass]="{'font-regular': !darkMode(), 'font-light': darkMode()}">
         <p>
-            <span class="opacity-60">I’m a </span>passionate <span class="opacity-60">and </span><span>detail-oriented</span><span class="opacity-60"> Frontend Developer with a keen eye for </span>design <span class="opacity-60">and a deep understanding of </span>modern web technologies<span class="opacity-60">. I specialize in creating responsive, user-friendly, and visually appealing websites that deliver seamless experiences across all devices.</span>
+            <span #subText>I’m a </span>passionate <span  #subText>and </span><span>detail-oriented</span><span  #subText> Frontend Developer with a keen eye for </span>design <span  #subText>and a deep understanding of </span>modern web technologies<span  #subText>. I specialize in creating responsive, user-friendly, and visually appealing websites that deliver seamless experiences across all devices.</span>
         </p>
         <br>
         <p>
-            <span class="opacity-60">My interest in design drives me to stay updated on the latest design trends and best practices, allowing me to bridge the gap between </span><span>development</span><span class="opacity-60"> and </span><span>design.</span>
+            <span  #subText>My interest in design drives me to stay updated on the latest design trends and best practices, allowing me to bridge the gap between </span><span>development</span><span  #subText> and </span><span>design.</span>
         </p>
         <br>
-        <p class="opacity-60">In my free time, I am usually reading, hiking, traveling and one of my favorite hobbies painting.</p>
+        <p  #subText>In my free time, I am usually reading, hiking, traveling and one of my favorite hobbies painting.</p>
     </div>
 </section>

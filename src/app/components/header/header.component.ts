@@ -1,7 +1,10 @@
 import { CommonModule } from '@angular/common';
-import { Component, effect, inject, input, model, OnInit } from '@angular/core';
+import { Component, effect, inject, input, model, OnInit, signal } from '@angular/core';
 import { ActivatedRoute, RouterLink, RouterLinkActive } from '@angular/router';
 import { debounceTime, Observable, of, share } from 'rxjs';
+
+const darkModeSignal = signal(false);
+export const darkMode = darkModeSignal.asReadonly;
 
 @Component({
   selector: 'app-header',
@@ -45,6 +48,14 @@ export class HeaderComponent {
     effect(() => {
       this.selectedFragment = of(this.scrolledFragment());
     })
+
+    effect(() => {
+      if (this.isDarkMode()) {
+        darkModeSignal.set(this.isDarkMode()!);
+      }
+    }, {
+      allowSignalWrites: true
+    })
   }
 
   protected changeTheme(): void {
@@ -52,10 +63,12 @@ export class HeaderComponent {
     this.setLocalStorageVariable();
     if (this.isDarkMode()) {
       document.documentElement.classList.add('dark');
+      darkModeSignal.set(true);
       return;
     }
 
     document.documentElement.classList.remove('dark');
+    darkModeSignal.set(false);
   }
 
   private setLocalStorageVariable(): void {

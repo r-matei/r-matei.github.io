@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ExperienceInterface } from '../experience/experience.component';
 import { ExperienceCardComponent } from '../experience/experience-card/experience-card.component';
 import { CommonModule } from '@angular/common';
+import { darkMode } from '../../components/header/header.component';
 
 @Component({
   selector: 'app-education',
@@ -25,4 +26,5 @@ export class EducationComponent {
     ]
   };
 
+  darkMode = darkMode();
 }
